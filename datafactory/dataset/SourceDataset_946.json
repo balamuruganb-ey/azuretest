@@ -1,0 +1,79 @@
+{
+	"name": "SourceDataset_946",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureFileStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureFileStorageLocation",
+				"fileName": "ECOM NEW.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Prop_0",
+				"type": "String"
+			},
+			{
+				"name": "CLIENT_ID",
+				"type": "String"
+			},
+			{
+				"name": "CLIENT_ID_NEW",
+				"type": "String"
+			},
+			{
+				"name": "APPLICATION",
+				"type": "String"
+			},
+			{
+				"name": "DATE_TIME",
+				"type": "String"
+			},
+			{
+				"name": "FUNCTIONALITY",
+				"type": "String"
+			},
+			{
+				"name": "HIGH_LEVEL_FUNCTION",
+				"type": "String"
+			},
+			{
+				"name": "LOW_LEVEL_FUNCTION",
+				"type": "String"
+			},
+			{
+				"name": "SCREEN",
+				"type": "String"
+			},
+			{
+				"name": "SESSION_ID",
+				"type": "String"
+			},
+			{
+				"name": "SESSION_ID_NEW",
+				"type": "String"
+			},
+			{
+				"name": "token_id",
+				"type": "String"
+			},
+			{
+				"name": "token_id_NEW",
+				"type": "String"
+			},
+			{
+				"name": "DATE_TIME_NEW",
+				"type": "String"
+			}
+		]
+	}
+}
