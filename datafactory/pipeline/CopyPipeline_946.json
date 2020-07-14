@@ -88,16 +88,6 @@
 							},
 							{
 								"source": {
-									"name": "HIGH_LEVEL_FUNCTION",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "detail"
-								}
-							},
-							{
-								"source": {
 									"name": "token_id",
 									"type": "String",
 									"physicalType": "String"
