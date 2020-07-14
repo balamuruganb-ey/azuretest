@@ -1,0 +1,285 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "BalaTestDF"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_946')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_946",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "/ECOM NEW.csv"
+							},
+							{
+								"name": "Destination",
+								"value": "txnsample"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureFileStorageReadSettings",
+									"recursive": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"skipLineCount": 0
+								}
+							},
+							"sink": {
+								"type": "AzureTableSink",
+								"azureTableInsertType": "merge",
+								"writeBatchSize": 10000
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "DATE_TIME",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DATE_TIME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Prop_0",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "id"
+										}
+									},
+									{
+										"source": {
+											"name": "CLIENT_ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "partnerId"
+										}
+									},
+									{
+										"source": {
+											"name": "FUNCTIONALITY",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "detail"
+										}
+									},
+									{
+										"source": {
+											"name": "token_id",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "customerId"
+										}
+									},
+									{
+										"source": {
+											"name": "APPLICATION",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "channel"
+										}
+									},
+									{
+										"source": {
+											"name": "SESSION_ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "otherReference"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_946",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_946",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_946')]",
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_946')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_946')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureTableStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureTable",
+				"schema": [],
+				"typeProperties": {
+					"tableName": "txnsample"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_946')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureFileStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureFileStorageLocation",
+						"fileName": "ECOM NEW.csv"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "Prop_0",
+						"type": "String"
+					},
+					{
+						"name": "CLIENT_ID",
+						"type": "String"
+					},
+					{
+						"name": "CLIENT_ID_NEW",
+						"type": "String"
+					},
+					{
+						"name": "APPLICATION",
+						"type": "String"
+					},
+					{
+						"name": "DATE_TIME",
+						"type": "String"
+					},
+					{
+						"name": "FUNCTIONALITY",
+						"type": "String"
+					},
+					{
+						"name": "HIGH_LEVEL_FUNCTION",
+						"type": "String"
+					},
+					{
+						"name": "LOW_LEVEL_FUNCTION",
+						"type": "String"
+					},
+					{
+						"name": "SCREEN",
+						"type": "String"
+					},
+					{
+						"name": "SESSION_ID",
+						"type": "String"
+					},
+					{
+						"name": "SESSION_ID_NEW",
+						"type": "String"
+					},
+					{
+						"name": "token_id",
+						"type": "String"
+					},
+					{
+						"name": "token_id_NEW",
+						"type": "String"
+					},
+					{
+						"name": "DATE_TIME_NEW",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureFileStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureFileStorage1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureFileStorage",
+				"typeProperties": {
+					"host": "\\\\balaazuretest.file.core.windows.net\\txnsample",
+					"userId": "Azure\\balaazuretest",
+					"password": {
+						"type": "SecureString",
+						"value": "**********"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
