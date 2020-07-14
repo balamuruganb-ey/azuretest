@@ -58,16 +58,6 @@
 							},
 							{
 								"source": {
-									"name": "Prop_0",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "id"
-								}
-							},
-							{
-								"source": {
 									"name": "CLIENT_ID",
 									"type": "String",
 									"physicalType": "String"
