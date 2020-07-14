@@ -1,0 +1,153 @@
+{
+	"name": "CopyPipeline_946",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_946",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/ECOM NEW.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "txnsample"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureFileStorageReadSettings",
+							"recursive": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureTableSink",
+						"azureTableInsertType": "merge",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "DATE_TIME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DATE_TIME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Prop_0",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "id"
+								}
+							},
+							{
+								"source": {
+									"name": "CLIENT_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "partnerId"
+								}
+							},
+							{
+								"source": {
+									"name": "FUNCTIONALITY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "detail"
+								}
+							},
+							{
+								"source": {
+									"name": "HIGH_LEVEL_FUNCTION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "detail"
+								}
+							},
+							{
+								"source": {
+									"name": "token_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "customerId"
+								}
+							},
+							{
+								"source": {
+									"name": "APPLICATION",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "channel"
+								}
+							},
+							{
+								"source": {
+									"name": "SESSION_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "otherReference"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_946",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_946",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
