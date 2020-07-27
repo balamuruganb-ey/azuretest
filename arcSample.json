@@ -4,61 +4,61 @@
       "id": 1,
       "n": 1,
       "grp": 1,
-      "name": "A"
+      "name": "DIGITAL MARKETING"
     },
     {
       "id": 2,
       "n": 2,
       "grp": 1,
-      "name": "B"
+      "name": "EMAIL MARKETING"
     },
     {
       "id": 3,
       "n": 3,
       "grp": 2,
-      "name": "C"
+      "name": "TELE MARKETING"
     },
     {
       "id": 4,
       "n": 4,
       "grp": 2,
-      "name": "D"
+      "name": "APP BROWSE"
     },
     {
       "id": 5,
       "n": 5,
       "grp": 3,
-      "name": "E"
+      "name": "DISPLAY RETARGETING"
     },
     {
       "id": 6,
       "n": 1,
       "grp": 3,
-      "name": "F"
+      "name": "PURCHASE"
     },
     {
       "id": 7,
       "n": 2,
       "grp": 4,
-      "name": "G"
+      "name": "DEPOSIT"
     },
     {
       "id": 8,
       "n": 3,
       "grp": 4,
-      "name": "H"
+      "name": "REFERRAL"
     },
     {
       "id": 9,
       "n": 4,
       "grp": 5,
-      "name": "I"
+      "name": "CLOSE ACCOUNT"
     },
     {
       "id": 10,
       "n": 5,
       "grp": 5,
-      "name": "J"
+      "name": "WITHDRAW"
     }
   ],
   "links": [
