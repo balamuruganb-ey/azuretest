@@ -1,0 +1,5 @@
+{ "vertices": 
+[{"id":0,"offeringName":"CREDITCARD","name":"MARKETING"},{"id":1,"offeringName":"SAVINGSACCOUNT","name":"EVENT"},{"id":2,"offeringName":"CREDITCARD","name":"TRANSACTION"},{"id":3,"offeringName":"INVESTMENT","name":"RECOMMENDATION"},{"id":4,"offeringName":"SAVINGSACCOUNT","name":"TICKET"}]
+,"edges":
+[{"sourceId":0,"destinationId":1,"users":314,"interactions":0},{"sourceId":1,"destinationId":0,"users":194,"interactions":0},{"sourceId":0,"destinationId":2,"users":53,"interactions":0},{"sourceId":2,"destinationId":0,"users":35,"interactions":0},{"sourceId":2,"destinationId":1,"users":8,"interactions":0},{"sourceId":0,"destinationId":3,"users":29,"interactions":0},{"sourceId":3,"destinationId":0,"users":109,"interactions":0},{"sourceId":1,"destinationId":3,"users":15,"interactions":0},{"sourceId":3,"destinationId":2,"users":18,"interactions":0},{"sourceId":2,"destinationId":3,"users":58,"interactions":0},{"sourceId":1,"destinationId":2,"users":30,"interactions":0},{"sourceId":3,"destinationId":1,"users":3,"interactions":0},{"sourceId":2,"destinationId":4,"users":1,"interactions":0},{"sourceId":4,"destinationId":2,"users":1,"interactions":0}]
+}
